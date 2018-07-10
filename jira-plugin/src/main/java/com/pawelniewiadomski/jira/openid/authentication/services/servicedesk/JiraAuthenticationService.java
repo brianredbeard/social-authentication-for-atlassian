@@ -8,6 +8,7 @@ import com.atlassian.crowd.search.query.entity.UserQuery;
 import com.atlassian.crowd.search.query.entity.restriction.MatchMode;
 import com.atlassian.crowd.search.query.entity.restriction.TermRestriction;
 import com.atlassian.crowd.search.query.entity.restriction.constants.UserTermKeys;
+import com.atlassian.jira.bc.user.UserService;
 import com.atlassian.jira.exception.CreateException;
 import com.atlassian.jira.security.login.LoginManager;
 import com.atlassian.jira.user.ApplicationUser;
@@ -47,17 +48,23 @@ import static org.apache.commons.lang.StringUtils.stripToEmpty;
 @Slf4j
 @Component
 public class JiraAuthenticationService implements AuthenticationService {
-    @Autowired protected UserManager userManager;
+    @Autowired
+    protected UserService userService;
 
-    @Autowired protected CrowdService crowdService;
+    @Autowired
+    protected CrowdService crowdService;
 
-    @Autowired protected GlobalSettings globalSettings;
+    @Autowired
+    protected GlobalSettings globalSettings;
 
-    @Autowired protected TemplateHelper templateHelper;
+    @Autowired
+    protected TemplateHelper templateHelper;
 
-    @Autowired protected ExternalUserManagementService externalUserManagementService;
+    @Autowired
+    protected ExternalUserManagementService externalUserManagementService;
 
-    @Autowired protected RedirectionService redirectionService;
+    @Autowired
+    protected RedirectionService redirectionService;
 
     public void showAuthentication(final HttpServletRequest request, final HttpServletResponse response,
                                    final OpenIdProvider provider, final ProvidedUserDetails userDetails) throws IOException, ServletException {
@@ -78,14 +85,20 @@ public class JiraAuthenticationService implements AuthenticationService {
             try {
                 final String userName = lowerCase(replaceChars(userDetails.getIdentity(), " '()", ""));
 
-                for(int i = 0; i < 10 && user == null; ++i) {
+                for (int i = 0; i < 10 && user == null; ++i) {
                     try {
                         val tryUserName = userName + (i == 0 ? "" : i);
-                        user = userManager.createUser(
-                                new UserDetails(tryUserName, userDetails.getIdentity())
-                                        .withPassword(randomUUID().toString())
-                                        .withEmail(userDetails.getEmail())
-                        );
+
+                        UserService.CreateUserRequest createUserRequest = UserService.CreateUserRequest.withUserDetails(
+                                null,
+                                tryUserName,
+                                randomUUID().toString(),
+                                userDetails.getEmail(),
+                                userDetails.getIdentity())
+                                .sendNotification(false)
+                                .skipValidation();
+
+                        user = userService.createUser(userService.validateCreateUser(createUserRequest));
                     } catch (CreateException e) {
                         if (!(e.getCause() instanceof UserAlreadyExistsException || e.getCause() instanceof InvalidUserException)) {
                             throw e;
