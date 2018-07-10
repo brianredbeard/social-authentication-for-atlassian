@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.pawelniewiadomski.jira</groupId>
         <artifactId>social-authentication-parent</artifactId>
-        <version>3.2.3</version>
+        <version>3.2.4-SNAPSHOT</version>
     </parent>
     <artifactId>confluence-openid-authentication-plugin</artifactId>
     <name>OpenID Authentication for Confluence</name>
