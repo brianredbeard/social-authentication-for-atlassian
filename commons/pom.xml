@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.pawelniewiadomski.jira</groupId>
         <artifactId>social-authentication-parent</artifactId>
-        <version>3.2.4-SNAPSHOT</version>
+        <version>3.2.4</version>
     </parent>
     <artifactId>social-authentication-commons</artifactId>
     <name>Social Authentication Commons</name>
