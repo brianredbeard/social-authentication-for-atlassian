@@ -95,7 +95,7 @@ public class GoogleProviderType extends AbstractOAuth2ProviderType {
     @Override
     public Either<Pair<String, String>, Error> getUsernameAndEmail(@Nonnull String authorizationCode, @Nonnull OpenIdProvider provider, @Nonnull HttpServletRequest request) throws Exception {
         final OAuthClient oAuthClient = new OAuthClient(new URLConnectionClient());
-        final OAuthClientRequest oAuthRequest = OAuthClientRequest.tokenLocation(OAuthProviderType.GOOGLE.getTokenEndpoint())
+        final OAuthClientRequest oAuthRequest = OAuthClientRequest.tokenLocation("https://www.googleapis.com/oauth2/v4/token")
                 .setGrantType(GrantType.AUTHORIZATION_CODE)
                 .setClientId(provider.getClientId())
                 .setClientSecret(provider.getClientSecret())
@@ -108,7 +108,7 @@ public class GoogleProviderType extends AbstractOAuth2ProviderType {
         //noinspection ConstantConditions
         final String email = token.getIdToken().get().getClaimsSet().getCustomField("email", String.class);
 
-        final OAuthClientRequest bearerClientRequest = new OAuthBearerClientRequest("https://www.googleapis.com/plus/v1/people/me/openIdConnect")
+        final OAuthClientRequest bearerClientRequest = new OAuthBearerClientRequest("https://openidconnect.googleapis.com/v1/userinfo")
                 .setAccessToken(accessToken)
                 .buildHeaderMessage();
 
