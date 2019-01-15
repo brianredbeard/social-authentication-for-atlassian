@@ -454,33 +454,6 @@
                 <atlassian.dev.mode>false</atlassian.dev.mode>
             </properties>
         </profile>
-        <profile>
-            <id>timestamp-version</id>
-            <activation>
-                <property>
-                    <!-- ATLAS_VERSION is set by atlas-debug, atlas-cli and such - mind atlas-mvn! -->
-                    <name>!env.ATLAS_VERSION</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.spartez.maven</groupId>
-                        <artifactId>snapshot-timestamp-maven-plugin</artifactId>
-                        <version>1</version>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <!-- stores version into pluginVersion (customizable by targetProperty),
-                                     adding timestamp to SNAPSHOTs only -->
-                                    <goal>addTimestamp</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
     </profiles>
     <dependencies />
 </project>
