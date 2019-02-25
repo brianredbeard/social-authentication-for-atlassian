@@ -105,11 +105,19 @@ angular.module("openid.configuration", ['ngRoute'])
         };
 
         $scope.moveProviderUp = function (providerId) {
-            $http.post(restPath + "/providers/moveUp/" + providerId).success(setProviders);
+            $http.post(restPath + "/providers/moveUp/" + providerId, null, {
+                headers: {
+                    "X-Atlassian-Token": "no-check"
+                }
+            }).success(setProviders);
         };
 
         $scope.moveProviderDown = function (providerId) {
-            $http.post(restPath + "/providers/moveDown/" + providerId).success(setProviders);
+            $http.post(restPath + "/providers/moveDown/" + providerId, null, {
+                headers: {
+                    "X-Atlassian-Token": "no-check"
+                }
+            }).success(setProviders);
         };
 
         $scope.enableProvider = function(providerId, enabled) {
