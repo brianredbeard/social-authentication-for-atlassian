@@ -21,13 +21,13 @@
     </modules>
 
     <properties>
-        <jira.version>7.2.13</jira.version>
+        <jira.version>8.0.0</jira.version>
         <testkit.version>7.0.70</testkit.version>
         <jira.servicedesk.application.version>3.0.10</jira.servicedesk.application.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <amps.version>6.3.6</amps.version>
+        <amps.version>8.0.0</amps.version>
         <prettyurls.version>1.11.0</prettyurls.version>
-        <sal.api.version>2.13.4</sal.api.version>
+        <sal.api.version>4.0.0</sal.api.version>
         <atlassian.templaterenderer.version>1.0.5</atlassian.templaterenderer.version>
         <ao.version>0.19.7</ao.version>
         <rest.version>2.7.1</rest.version>
@@ -35,7 +35,7 @@
         <oracle.jdbc.version>11.2.0.2.0</oracle.jdbc.version>
         <xvfb.enable>true</xvfb.enable>
         <confluence.version>6.1.3</confluence.version>
-        <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
+        <atlassian.spring.scanner.version>2.1.8</atlassian.spring.scanner.version>
         <atlassian.dev.mode>true</atlassian.dev.mode>
         <github.global.server>github</github.global.server>
     </properties>
@@ -323,13 +323,7 @@
                 <groupId>com.atlassian.plugin</groupId>
                 <artifactId>atlassian-spring-scanner-annotation</artifactId>
                 <version>${atlassian.spring.scanner.version}</version>
-                <scope>compile</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.atlassian.plugin</groupId>
-                <artifactId>atlassian-spring-scanner-runtime</artifactId>
-                <version>${atlassian.spring.scanner.version}</version>
-                <scope>runtime</scope>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
