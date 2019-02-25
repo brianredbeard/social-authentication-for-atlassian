@@ -18,7 +18,7 @@
         {param action}{/param}
         {param id}deleteProvider{/param}
         {param isTopLabels: true/}
-        {param extraAttributes}ng-submit="deleteProvider()" name="deleteProviderForm"{/param}
+        {param extraAttributes}ng-submit="deleteProvider(); $event.preventDefault()" name="deleteProviderForm"{/param}
         {param content}
             {call aui.message.warning}
                 {param content}
