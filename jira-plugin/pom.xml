@@ -5,7 +5,7 @@
     <parent>
         <groupId>com.pawelniewiadomski.jira</groupId>
         <artifactId>social-authentication-parent</artifactId>
-        <version>3.3.1-SNAPSHOT</version>
+        <version>3.2.5-SNAPSHOT</version>
     </parent>
     <artifactId>jira-openid-authentication-plugin</artifactId>
     <name>OpenID Authentication for JIRA</name>
