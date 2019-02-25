@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.pawelniewiadomski.jira</groupId>
     <artifactId>social-authentication-parent</artifactId>
-    <version>3.2.5-SNAPSHOT</version>
+    <version>3.3.1</version>
     <organization>
         <name>Pawel Niewiadomski</name>
         <url>http://pawelniewiadomski.com/</url>
@@ -43,7 +43,7 @@
     <scm>
         <connection>scm:git:ssh://git@github.com/pawelniewie/social-authentication-for-atlassian.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/pawelniewie/social-authentication-for-atlassian.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>social-authentication-parent-3.3.1</tag>
     </scm>
 
     <distributionManagement>
