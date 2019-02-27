@@ -296,6 +296,16 @@
                 <version>1.0.4-pawelniewie-2</version>
             </dependency>
             <dependency>
+                <groupId>org.apache.oltu.commons</groupId>
+                <artifactId>org.apache.oltu.commons.encodedtoken</artifactId>
+                <version>1.0.2-pawelniewie-2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.oltu.commons</groupId>
+                <artifactId>org.apache.oltu.commons.json</artifactId>
+                <version>1.0.2-pawelniewie-2</version>
+            </dependency>
+            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>1.18.4</version>
