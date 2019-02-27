@@ -260,7 +260,7 @@
                     </systemPropertyVariables>
                     <instructions>
                         <Import-Package>
-                            com.atlassian.sal.api*;version="[4.0.0, 5.0.0)",
+                            com.atlassian.sal.api*;version="[2.10.0, 5.0.0)",
                             com.atlassian.jira;resolution:=optional,
                             *;resolution:=optional
                         </Import-Package>
